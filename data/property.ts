@@ -2,6 +2,18 @@
 // Guesthouse, a portfolio/client-acquisition demo — not a real business.
 // Swap every field for verified client facts before any real deployment.
 
+import type { StaticImageData } from "next/image";
+import acaciaDusk from "@/public/images/acacia-dusk.jpg";
+import breakfast from "@/public/images/breakfast.jpg";
+import courtyard from "@/public/images/courtyard.jpg";
+import garden from "@/public/images/garden.jpg";
+import kampalaView from "@/public/images/kampala-view.jpg";
+import roomDouble from "@/public/images/room-double.jpg";
+import roomFamily from "@/public/images/room-family.jpg";
+import roomSingle from "@/public/images/room-single.jpg";
+import roomTwin from "@/public/images/room-twin.jpg";
+import veranda from "@/public/images/veranda.jpg";
+
 export const property = {
   name: "Whistling Acacia Guesthouse",
   shortName: "Whistling Acacia",
@@ -33,6 +45,67 @@ export const quickFacts = [
   { label: "Reachable by", value: "WhatsApp or phone" },
 ] as const;
 
+export type Photo = {
+  src: StaticImageData;
+  alt: string;
+  // Placeholder stock photography (Unsplash License) — not the property.
+  // Replace with the client's own photos before any real use.
+  credit: string;
+};
+
+export const photos = {
+  courtyard: {
+    src: courtyard,
+    alt: "Garden chairs and a table on a shaded patio surrounded by palms",
+    credit: "Brunxs / Unsplash",
+  },
+  veranda: {
+    src: veranda,
+    alt: "Breakfast laid out under a thatched veranda roof",
+    credit: "Lonely Planet / Unsplash",
+  },
+  breakfast: {
+    src: breakfast,
+    alt: "A breakfast tray with pastries, fruit and orange juice on a wooden deck",
+    credit: "Llio Angharad / Unsplash",
+  },
+  garden: {
+    src: garden,
+    alt: "A brick path winding through a lush tropical garden",
+    credit: "Elliott Blair / Unsplash",
+  },
+  kampalaView: {
+    src: kampalaView,
+    alt: "City towers rising above tree-covered hills",
+    credit: "Michael Starkie / Unsplash",
+  },
+  acaciaDusk: {
+    src: acaciaDusk,
+    alt: "A lone acacia tree against a golden evening sky",
+    credit: "Damian Patkowski / Unsplash",
+  },
+  roomSingle: {
+    src: roomSingle,
+    alt: "A bedroom with a wall of glass opening onto tropical plants",
+    credit: "Marc Wieland / Unsplash",
+  },
+  roomDouble: {
+    src: roomDouble,
+    alt: "A bed with red cushions beside open doors to a garden",
+    credit: "Doan Anh / Unsplash",
+  },
+  roomTwin: {
+    src: roomTwin,
+    alt: "Two single beds under mosquito nets in a bright room",
+    credit: "Doan Anh / Unsplash",
+  },
+  roomFamily: {
+    src: roomFamily,
+    alt: "A spacious suite with a four-poster bed and a timber ceiling",
+    credit: "Didi Paul / Unsplash",
+  },
+} satisfies Record<string, Photo>;
+
 export type Room = {
   id: string;
   name: string;
@@ -41,6 +114,7 @@ export type Room = {
   occupancy: string;
   features: string[];
   description: string;
+  photo: Photo;
 };
 
 export const rooms: Room[] = [
@@ -53,6 +127,7 @@ export const rooms: Room[] = [
     features: ["Self-contained", "Garden view", "Work desk"],
     description:
       "A compact room facing the courtyard garden — quiet, self-contained, built for one.",
+    photo: photos.roomSingle,
   },
   {
     id: "garden-double",
@@ -63,6 +138,7 @@ export const rooms: Room[] = [
     features: ["Self-contained", "Private balcony", "Garden view"],
     description:
       "The most requested room: a queen bed, a small balcony over the garden, morning light.",
+    photo: photos.roomDouble,
   },
   {
     id: "twin",
@@ -73,6 +149,7 @@ export const rooms: Room[] = [
     features: ["Self-contained", "Courtyard-facing", "Work desk"],
     description:
       "Two single beds in a self-contained room, well suited to friends or colleagues travelling together.",
+    photo: photos.roomTwin,
   },
   {
     id: "family-suite",
@@ -83,6 +160,7 @@ export const rooms: Room[] = [
     features: ["Self-contained", "Lounge nook", "Garden view"],
     description:
       "A queen bed and a separate lounge nook with a sofa bed — room to spread out as a family.",
+    photo: photos.roomFamily,
   },
 ];
 
@@ -101,11 +179,13 @@ export const amenities: Amenity[] = [
   { id: "transfer", label: "Airport transfer on request", icon: "transfer" },
 ];
 
-export const galleryPlates = [
-  { id: "courtyard", label: "The courtyard garden" },
-  { id: "veranda", label: "Breakfast veranda" },
-  { id: "room", label: "A Garden Double room" },
-  { id: "hillside", label: "The Naguru hillside" },
+export const gallery = [
+  { id: "courtyard", label: "The courtyard garden", photo: photos.courtyard },
+  { id: "veranda", label: "Breakfast veranda", photo: photos.veranda },
+  { id: "room", label: "A Garden Double room", photo: photos.roomDouble },
+  { id: "garden", label: "Paths through the garden", photo: photos.garden },
+  { id: "breakfast", label: "Breakfast, included daily", photo: photos.breakfast },
+  { id: "evening", label: "Evenings under the acacias", photo: photos.acaciaDusk },
 ] as const;
 
 export const reviews = [

@@ -1,6 +1,7 @@
+import type { CSSProperties } from "react";
 import { property } from "@/data/property";
 import { IconPhone, IconWhatsapp } from "./icons";
-import { HeroPlate } from "./Plates";
+import { HeroPatchwork } from "./HeroPatchwork";
 
 export function Hero() {
   const waHref = `https://wa.me/${property.whatsappNumber}?text=${encodeURIComponent(
@@ -11,17 +12,17 @@ export function Hero() {
     <section id="top" className="relative bg-bark-deep">
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-5 pb-16 pt-28 sm:px-8 sm:pb-20 sm:pt-32 md:grid-cols-[1.1fr_1fr] md:gap-12 md:pb-24">
         <div>
-          <p className="text-sm font-medium tracking-wide text-ink-on-bark-soft">
+          <p className="rise text-sm font-medium tracking-wide text-ink-on-bark-soft">
             {property.area}, {property.city}
           </p>
-          <h1 className="mt-4 max-w-lg font-display text-4xl italic leading-[1.1] text-ink-on-bark sm:text-5xl md:text-6xl">
+          <h1 style={{ "--d": "80ms" } as CSSProperties} className="rise-solid mt-4 max-w-lg font-display text-4xl italic leading-[1.1] text-ink-on-bark sm:text-5xl md:text-6xl">
             {property.tagline}
           </h1>
-          <p className="mt-6 max-w-md text-base leading-relaxed text-ink-on-bark-soft sm:text-lg">
+          <p style={{ "--d": "180ms" } as CSSProperties} className="rise-solid mt-6 max-w-md text-base leading-relaxed text-ink-on-bark-soft sm:text-lg">
             {property.intro}
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div style={{ "--d": "280ms" } as CSSProperties} className="rise mt-8 flex flex-col gap-3 sm:flex-row">
             <a
               href={waHref}
               target="_blank"
@@ -41,9 +42,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="patch-a shadow-patch overflow-hidden">
-          <HeroPlate className="h-full w-full object-cover" />
-        </div>
+        <HeroPatchwork className="patch-a shadow-patch w-full" />
       </div>
     </section>
   );

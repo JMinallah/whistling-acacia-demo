@@ -7,7 +7,7 @@ export function RoomsSection() {
     <section id="rooms" className="bg-bark">
       <TornEdge fill="var(--bark)" />
       <div className="mx-auto max-w-6xl px-5 pb-16 pt-2 sm:px-8 sm:pb-20">
-        <div className="max-w-xl">
+        <div data-reveal className="max-w-xl">
           <h2 className="font-display text-3xl italic text-ink-on-bark sm:text-4xl">
             Rooms
           </h2>

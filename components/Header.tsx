@@ -38,7 +38,11 @@ export function Header() {
         condensed ? "bg-bark-deep/95 shadow-patch backdrop-blur-sm" : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 sm:px-8">
+      <div
+        className={`mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 transition-[padding] duration-300 sm:px-8 ${
+          condensed ? "py-2.5" : "py-4 sm:py-5"
+        }`}
+      >
         <a
           href="#top"
           className="font-display text-lg italic text-ink-on-bark sm:text-xl"

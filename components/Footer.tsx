@@ -43,12 +43,14 @@ export function Footer() {
         </div>
 
         <div
+          data-reveal="sew"
           className="stitch mt-10"
           style={{ "--stitch-color": "var(--bark-tint)" } as CSSProperties}
         />
 
         <p className="mt-6 text-xs text-ink-on-bark-soft/70">
           © {year} {property.name}. Fictional demo property for portfolio purposes.
+          Photography is placeholder stock from Unsplash, not the property.
         </p>
       </div>
     </footer>

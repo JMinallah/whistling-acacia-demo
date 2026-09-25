@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { reviews } from "@/data/property";
 import { TornEdge } from "./TornEdge";
 
@@ -8,7 +9,7 @@ export function Reviews() {
     <section className="bg-paper">
       <TornEdge fill="var(--paper)" />
       <div className="mx-auto max-w-6xl px-5 pb-16 pt-2 sm:px-8 sm:pb-20">
-        <h2 className="font-display text-3xl italic text-ink sm:text-4xl">
+        <h2 data-reveal className="font-display text-3xl italic text-ink sm:text-4xl">
           What guests say
         </h2>
         <p className="mt-2 text-sm text-ink-soft">
@@ -20,6 +21,8 @@ export function Reviews() {
           {reviews.map((review, index) => (
             <figure
               key={review.quote}
+              data-reveal
+              style={{ "--d": `${index * 120}ms` } as CSSProperties}
               className={`${RADII[index % RADII.length]} shadow-patch bg-paper-deep p-6`}
             >
               <blockquote className="text-ink">
