@@ -1,26 +1,145 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #f4e9db;
+  --paper-deep: #e9dac2;
+  --bark: #a6462b;
+  --bark-deep: #732e1c;
+  --bark-tint: #e4b79b;
+  --ink: #2a1f18;
+  --ink-soft: #5c4a3d;
+  --ink-on-bark: #f7ecdc;
+  --ink-on-bark-soft: #e6c6ab;
+  --accent: #c69a3b;
+  --accent-deep: #a57e2c;
+  --accent-ink: #241a0d;
+  --line: #d9c4a4;
+  --line-on-bark: #c9825c;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-bark: var(--bark);
+  --color-bark-deep: var(--bark-deep);
+  --color-bark-tint: var(--bark-tint);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-on-bark: var(--ink-on-bark);
+  --color-ink-on-bark-soft: var(--ink-on-bark-soft);
+  --color-accent: var(--accent);
+  --color-accent-deep: var(--accent-deep);
+  --color-accent-ink: var(--accent-ink);
+  --color-line: var(--line);
+  --color-line-on-bark: var(--line-on-bark);
+  --font-display: var(--font-newsreader);
+  --font-sans: var(--font-jakarta);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+a {
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+* {
+  scrollbar-color: var(--bark-tint) var(--paper-deep);
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--paper-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bark-tint);
+  border-radius: 999px;
+  border: 2px solid var(--paper-deep);
+}
+
+/* Hand-stitched seam: a dashed thread line for section/card dividers. */
+.stitch {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--stitch-color, var(--bark)) 0 7px,
+    transparent 7px 16px
+  );
+  background-position: center;
+  background-repeat: repeat-x;
+  background-size: auto 1.5px;
+  height: 1.5px;
+}
+
+.stitch-v {
+  background-image: repeating-linear-gradient(
+    180deg,
+    var(--stitch-color, var(--bark)) 0 7px,
+    transparent 7px 16px
+  );
+  background-position: center;
+  background-repeat: repeat-y;
+  background-size: 1.5px auto;
+  width: 1.5px;
+}
+
+/* Hand-cut patch corners: irregular radii so cards never read as one uniform grid. */
+.patch-a {
+  border-radius: 28px 10px 30px 12px;
+}
+.patch-b {
+  border-radius: 12px 30px 10px 28px;
+}
+.patch-c {
+  border-radius: 30px 26px 12px 24px;
+}
+
+.shadow-patch {
+  box-shadow:
+    0 1px 2px rgba(42, 31, 24, 0.06),
+    0 12px 24px -12px rgba(42, 31, 24, 0.28);
 }
