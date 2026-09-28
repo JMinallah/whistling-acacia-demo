@@ -7,12 +7,12 @@ export function Amenities() {
   return (
     <section id="amenities" className="bg-paper">
       <TornEdge fill="var(--paper)" />
-      <div className="mx-auto max-w-6xl px-5 pb-16 pt-2 sm:px-8 sm:pb-20">
-        <h2 data-reveal className="font-display text-3xl italic text-ink sm:text-4xl">
+      <div className="mx-auto max-w-6xl px-5 pb-12 pt-2 sm:px-8 sm:pb-16">
+        <h2 data-reveal className="font-display text-3xl font-medium text-ink sm:text-4xl">
           Amenities
         </h2>
 
-        <ul className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3">
+        <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-3">
           {amenities.map((amenity, index) => {
             const Icon = amenityIcons[amenity.icon];
             return (

@@ -11,6 +11,9 @@ import { IconWhatsapp } from "./icons";
 export function StickyEnquire() {
   const [pastHero, setPastHero] = useState(false);
   const [atEnquire, setAtEnquire] = useState(false);
+  // Other on-screen CTAs the pill should step aside for (e.g. a room's own
+  // "Enquire about this room"), marked with data-sticky-yield.
+  const [yielding, setYielding] = useState(0);
 
   useEffect(() => {
     const heroCta = document.querySelector("[data-hero-cta]");
@@ -29,10 +32,24 @@ export function StickyEnquire() {
     });
     io.observe(heroCta);
     io.observe(enquire);
-    return () => io.disconnect();
+
+    const inView = new Set<Element>();
+    const yieldIo = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) inView.add(entry.target);
+        else inView.delete(entry.target);
+      }
+      setYielding(inView.size);
+    });
+    document.querySelectorAll("[data-sticky-yield]").forEach((el) => yieldIo.observe(el));
+
+    return () => {
+      io.disconnect();
+      yieldIo.disconnect();
+    };
   }, []);
 
-  const shown = pastHero && !atEnquire;
+  const shown = pastHero && !atEnquire && yielding === 0;
 
   return (
     <a
@@ -42,7 +59,7 @@ export function StickyEnquire() {
       aria-label="Enquire on WhatsApp"
       inert={!shown}
       data-shown={shown || undefined}
-      className="sticky-enquire fixed right-4 z-40 inline-flex items-center gap-2 rounded-full bg-accent py-3 pl-4 pr-5 text-base font-semibold text-accent-ink shadow-[0_2px_4px_rgba(42,31,24,0.12),0_14px_28px_-10px_rgba(42,31,24,0.55)] md:hidden"
+      className="sticky-enquire btn-patch fixed right-4 z-40 text-base md:hidden"
       style={{ bottom: "calc(1rem + env(safe-area-inset-bottom))" }}
     >
       <IconWhatsapp className="h-5 w-5" />

@@ -53,7 +53,7 @@ const pct = (n: number) => `${+(n * 100).toFixed(3)}%`;
 export function HeroPatchwork({ className = "" }: { className?: string }) {
   return (
     <div
-      className={`hero-patchwork relative aspect-[420/480] overflow-hidden bg-bark-tint ${className}`}
+      className={`hero-patchwork relative aspect-[16/10] overflow-hidden bg-bark-tint md:aspect-[420/480] ${className}`}
       role="img"
       aria-label="A stitched patchwork of the guesthouse: the courtyard, an acacia at dusk, a garden room, the breakfast veranda, breakfast itself and the view toward the city"
     >

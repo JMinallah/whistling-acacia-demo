@@ -29,9 +29,9 @@ export function Gallery() {
   return (
     <section id="gallery" className="bg-paper-deep">
       <TornEdge fill="var(--paper-deep)" />
-      <div className="mx-auto max-w-6xl px-5 pb-16 pt-2 sm:px-8 sm:pb-20">
+      <div className="mx-auto max-w-6xl px-5 pb-12 pt-2 sm:px-8 sm:pb-16">
         <div data-reveal className="max-w-xl">
-          <h2 className="font-display text-3xl italic text-ink sm:text-4xl">
+          <h2 className="font-display text-3xl font-medium text-ink sm:text-4xl">
             Gallery
           </h2>
           <p className="mt-3 text-ink-soft">
@@ -41,7 +41,7 @@ export function Gallery() {
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3">
+        <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3">
           {gallery.map((item, index) => (
             <figure
               key={item.id}

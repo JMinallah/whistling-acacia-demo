@@ -153,6 +153,21 @@ export function IconChevronRight({ className }: IconProps) {
   );
 }
 
+export function IconMoon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className} aria-hidden="true">
+      <path d="M19.5 14.5A7.5 7.5 0 0 1 9.5 4.5a7.5 7.5 0 1 0 10 10Z" />
+      <path d="M16 4.5v2M15 5.5h2" />
+    </svg>
+  );
+}
+
+export const reasonIcons = {
+  quiet: IconMoon,
+  garden: IconGarden,
+  breakfast: IconBreakfast,
+};
+
 export const amenityIcons = {
   garden: IconGarden,
   wifi: IconWifi,

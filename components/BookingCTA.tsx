@@ -42,10 +42,10 @@ export function BookingCTA() {
           className="absolute inset-0 bg-gradient-to-b from-bark-deep via-bark-deep/85 to-bark-deep/70"
         />
 
-        <div className="relative mx-auto max-w-6xl px-5 pb-16 pt-2 sm:px-8 sm:pb-24">
+        <div className="relative mx-auto max-w-6xl px-5 pb-14 pt-2 sm:px-8 sm:pb-20">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-[1fr_1.1fr] md:gap-16">
             <div data-reveal>
-              <h2 className="font-display text-3xl italic text-ink-on-bark sm:text-4xl">
+              <h2 className="font-display text-3xl font-medium text-ink-on-bark sm:text-4xl">
                 Ready when you are
               </h2>
               <p className="mt-3 max-w-sm text-ink-on-bark-soft">
@@ -130,7 +130,7 @@ export function BookingCTA() {
 
               <button
                 type="submit"
-                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-3.5 text-base font-semibold text-accent-ink transition-transform hover:scale-[1.01] sm:w-auto"
+                className="btn-patch mt-6 w-full text-base sm:w-auto"
               >
                 <IconWhatsapp className="h-5 w-5" />
                 Send via WhatsApp

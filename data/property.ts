@@ -18,18 +18,19 @@ export const property = {
   name: "Whistling Acacia Guesthouse",
   shortName: "Whistling Acacia",
   tagline: "A quiet hillside stay above Kampala",
+  // The word in the tagline set in italic for emphasis.
+  taglineEmphasis: "hillside",
   intro:
     "Eight rooms around a courtyard garden on Naguru hill — a short drive from the city, far enough from it to hear the acacia trees at night.",
-  about:
-    "Whistling Acacia sits back from the road on a quiet stretch of Naguru hill, where the noise of downtown Kampala gives way to birdsong and the trees the guesthouse is named for. Rooms open onto a shared garden courtyard; breakfast is served under the veranda most mornings. It's built for guests who want to be close to the city without living inside its traffic.",
+  aboutLead: "Close to the city, without living inside its traffic.",
   area: "Naguru",
   city: "Kampala",
   country: "Uganda",
   addressLine: "Plot 24, Naguru Hill Close, Naguru, Kampala",
   nearby: [
-    "12 minutes to central Kampala",
-    "Short walk to Naguru hill viewpoint",
-    "20 minutes to Entebbe Road",
+    { id: "city", place: "Central Kampala", time: "12 min", mode: "by car" },
+    { id: "viewpoint", place: "Naguru hill viewpoint", time: "Short walk", mode: "on foot" },
+    { id: "entebbe", place: "Entebbe Road", time: "20 min", mode: "by car" },
   ],
   phoneDisplay: "+256 700 123 456",
   phoneHref: "tel:+256700123456",
@@ -114,6 +115,8 @@ export const photos = {
 export type Room = {
   id: string;
   name: string;
+  // Tab label when rooms are compared side by side.
+  short: string;
   price: number;
   bed: string;
   occupancy: string;
@@ -126,6 +129,7 @@ export const rooms: Room[] = [
   {
     id: "garden-single",
     name: "Garden Single",
+    short: "Single",
     price: 55,
     bed: "Single bed",
     occupancy: "1 guest",
@@ -137,6 +141,7 @@ export const rooms: Room[] = [
   {
     id: "garden-double",
     name: "Garden Double",
+    short: "Double",
     price: 75,
     bed: "Queen bed",
     occupancy: "2 guests",
@@ -148,6 +153,7 @@ export const rooms: Room[] = [
   {
     id: "twin",
     name: "Twin Room",
+    short: "Twin",
     price: 75,
     bed: "Two single beds",
     occupancy: "2 guests",
@@ -159,6 +165,7 @@ export const rooms: Room[] = [
   {
     id: "family-suite",
     name: "Family Suite",
+    short: "Family",
     price: 95,
     bed: "Queen bed + sofa bed",
     occupancy: "2 adults, up to 3 children",
@@ -166,6 +173,30 @@ export const rooms: Room[] = [
     description:
       "A queen bed and a separate lounge nook with a sofa bed — room to spread out as a family.",
     photo: photos.roomFamily,
+  },
+];
+
+export type Reason = {
+  icon: "quiet" | "garden" | "breakfast";
+  title: string;
+  text: string;
+};
+
+export const reasons: Reason[] = [
+  {
+    icon: "quiet",
+    title: "Quiet, but close",
+    text: "Twelve minutes from central Kampala, and still you fall asleep to birdsong, not traffic.",
+  },
+  {
+    icon: "garden",
+    title: "Every room on the garden",
+    text: "Rooms open straight onto a shared courtyard garden.",
+  },
+  {
+    icon: "breakfast",
+    title: "Breakfast on the veranda",
+    text: "Included daily, served under the veranda most mornings.",
   },
 ];
 

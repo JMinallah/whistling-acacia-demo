@@ -6,7 +6,7 @@ export function QuickFacts() {
   return (
     <section className="bg-paper">
       <TornEdge fill="var(--paper)" />
-      <div className="mx-auto max-w-6xl px-5 pb-14 pt-2 sm:px-8">
+      <div className="mx-auto max-w-6xl px-5 pb-8 pt-2 sm:px-8 sm:pb-10">
         <dl className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4">
           {quickFacts.map((fact, index) => (
             <div
