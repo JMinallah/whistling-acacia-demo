@@ -38,6 +38,11 @@ export const property = {
   currency: "$",
 } as const;
 
+// Every enquiry CTA opens WhatsApp with a pre-filled first line.
+export const whatsappHref = (
+  text = `Hi ${property.shortName}, I'd like to enquire about a stay.`,
+) => `https://wa.me/${property.whatsappNumber}?text=${encodeURIComponent(text)}`;
+
 export const quickFacts = [
   { label: "Rooms", value: "8" },
   { label: "Neighbourhood", value: "Naguru, Kampala" },

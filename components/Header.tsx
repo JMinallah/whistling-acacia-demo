@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { nav, property } from "@/data/property";
+import { nav, property, whatsappHref } from "@/data/property";
 import { IconClose, IconMenu, IconWhatsapp } from "./icons";
 
 export function Header() {
@@ -28,9 +28,7 @@ export function Header() {
     };
   }, [open]);
 
-  const waHref = `https://wa.me/${property.whatsappNumber}?text=${encodeURIComponent(
-    `Hi ${property.shortName}, I'd like to enquire about a stay.`,
-  )}`;
+  const waHref = whatsappHref();
 
   return (
     <header

@@ -53,7 +53,7 @@ const pct = (n: number) => `${+(n * 100).toFixed(3)}%`;
 export function HeroPatchwork({ className = "" }: { className?: string }) {
   return (
     <div
-      className={`relative aspect-[420/480] overflow-hidden bg-bark-tint ${className}`}
+      className={`hero-patchwork relative aspect-[420/480] overflow-hidden bg-bark-tint ${className}`}
       role="img"
       aria-label="A stitched patchwork of the guesthouse: the courtyard, an acacia at dusk, a garden room, the breakfast veranda, breakfast itself and the view toward the city"
     >
@@ -77,6 +77,7 @@ export function HeroPatchwork({ className = "" }: { className?: string }) {
                 "--d": `${i * PATCH_STAGGER}ms`,
                 "--dx": `${patch.from[0]}px`,
                 "--dy": `${patch.from[1]}px`,
+                "--r": `${Math.sign(patch.from[0]) * (i % 2 ? 2.5 : 1.5)}deg`,
               } as CSSProperties
             }
           >
@@ -100,7 +101,7 @@ export function HeroPatchwork({ className = "" }: { className?: string }) {
       <svg
         viewBox={`0 0 ${W} ${H}`}
         preserveAspectRatio="none"
-        className="pointer-events-none absolute inset-0 h-full w-full"
+        className="hero-stitches pointer-events-none absolute inset-0 h-full w-full"
         aria-hidden="true"
       >
         <defs>

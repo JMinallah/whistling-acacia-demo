@@ -126,6 +126,33 @@ export function IconClose({ className }: IconProps) {
   );
 }
 
+export function IconExpand({ className }: IconProps) {
+  return (
+    <svg {...base} className={className} aria-hidden="true">
+      <path d="M14 4h6v6" />
+      <path d="M20 4l-6.5 6.5" />
+      <path d="M10 20H4v-6" />
+      <path d="M4 20l6.5-6.5" />
+    </svg>
+  );
+}
+
+export function IconChevronLeft({ className }: IconProps) {
+  return (
+    <svg {...base} className={className} aria-hidden="true">
+      <path d="m15 5-7 7 7 7" />
+    </svg>
+  );
+}
+
+export function IconChevronRight({ className }: IconProps) {
+  return (
+    <svg {...base} className={className} aria-hidden="true">
+      <path d="m9 5 7 7-7 7" />
+    </svg>
+  );
+}
+
 export const amenityIcons = {
   garden: IconGarden,
   wifi: IconWifi,

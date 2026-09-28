@@ -2,7 +2,7 @@
 
 import { type CSSProperties, useMemo, useState } from "react";
 import Image from "next/image";
-import { photos, property } from "@/data/property";
+import { photos, property, whatsappHref } from "@/data/property";
 import { IconMail, IconPhone, IconWhatsapp } from "./icons";
 import { TornEdge } from "./TornEdge";
 
@@ -20,11 +20,11 @@ export function BookingCTA() {
       guests && `Guests: ${guests}`,
       message && `Message: ${message}`,
     ].filter(Boolean);
-    return `https://wa.me/${property.whatsappNumber}?text=${encodeURIComponent(lines.join("\n"))}`;
+    return whatsappHref(lines.join("\n"));
   }, [name, dates, guests, message]);
 
   return (
-    <section className="bg-bark-deep">
+    <section id="enquire" className="bg-bark-deep">
       <TornEdge fill="var(--bark-deep)" />
       <div className="relative">
         {/* Dusk behind the acacia, sunk deep into the bark tone so the form

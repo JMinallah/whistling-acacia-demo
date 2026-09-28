@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import Image from "next/image";
-import { property, type Room } from "@/data/property";
+import { property, whatsappHref, type Room } from "@/data/property";
 import { IconWhatsapp } from "./icons";
 
 const RADII = ["patch-a", "patch-b", "patch-c"] as const;
@@ -13,9 +13,9 @@ const CUTS = [
 ] as const;
 
 export function RoomCard({ room, index }: { room: Room; index: number }) {
-  const waHref = `https://wa.me/${property.whatsappNumber}?text=${encodeURIComponent(
+  const waHref = whatsappHref(
     `Hi ${property.shortName}, I'd like to enquire about the ${room.name}.`,
-  )}`;
+  );
   const radius = RADII[index % RADII.length];
 
   return (

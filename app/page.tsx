@@ -10,6 +10,7 @@ import { QuickFacts } from "@/components/QuickFacts";
 import { Reviews } from "@/components/Reviews";
 import { RoomsSection } from "@/components/RoomsSection";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { StickyEnquire } from "@/components/StickyEnquire";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
       </main>
       <Footer />
       <ScrollReveal />
+      <StickyEnquire />
     </>
   );
 }
